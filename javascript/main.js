@@ -81,17 +81,14 @@ attendanceForm.addEventListener('submit', async (event) => {
         }
     });
 
-    // Guardar conceptos en caché o cookies
     saveConceptsToCache(concepts);
 
-    // Validar datos
     if (!attendanceIn || !attendanceOut || concepts.length === 0) {
         M.toast({ html: 'Por favor, complete todos los campos' });
         return;
     }
 
     try {
-        // Enviar datos al REST
         const response = await fetch('https://falconcloud.co/site_srv10_ph/site/api/qserv.php/13465-770721', {
             method: 'POST',
             headers: {
@@ -106,11 +103,9 @@ attendanceForm.addEventListener('submit', async (event) => {
 
         const data = await response.json();
 
-        // Mostrar resultados
         displayResults(data);
     } catch (error) {
         M.toast({ html: 'Error al conectar con el servicio REST' });
-        console.error(error);
     }
 });
 
