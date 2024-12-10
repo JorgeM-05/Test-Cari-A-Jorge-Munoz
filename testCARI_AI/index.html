@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horas Trabajadas por Concepto</title>
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="center-align">
+            <h1>Calculador de Horas Trabajadas</h1>
+            <p>Ingrese los datos y obtenga el cálculo de horas trabajadas por concepto</p>
+        </header>
+
+        <div class="row">
+            <!-- Formulario -->
+            <div class="col s12 m6">
+                <h5>Formulario de Entrada</h5>
+                <form id="attendance-form">
+                    <div class="input-field">
+                        <label for="attendanceIn">Hora de Entrada</label>
+                        <input type="time" id="attendanceIn" required>
+                    </div>
+                    <div class="input-field">
+                        <label for="attendanceOut">Hora de Salida</label>
+                        <input type="time" id="attendanceOut" required>
+                    </div>
+
+                    <h6>Configuración de Conceptos</h6>
+                    <table class="highlight">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Inicio</th>
+                                <th>Fin</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="concepts-table">
+                            <!-- Conceptos dinámicos -->
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn green" id="add-concept">Agregar Concepto</button>
+                    <button type="submit" class="btn blue">Calcular Horas</button>
+                </form>
+            </div>
+
+            <!-- Resultados -->
+            <div class="col s12 m6">
+                <h5>Resultados</h5>
+                <canvas id="results-chart"></canvas>
+                <table class="highlight">
+                    <thead>
+                        <tr>
+                            <th>Concepto</th>
+                            <th>Horas</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-table">
+                        <!-- Resultados dinámicos -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Materialize JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="javascript/main.js"></script>
+</body>
+</html>

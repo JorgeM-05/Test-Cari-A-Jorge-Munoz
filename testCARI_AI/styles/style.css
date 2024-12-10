@@ -1,0 +1,48 @@
+/* Estilos personalizados */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+h1 {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+.container {
+    padding: 20px;
+}
+
+input[type="time"] {
+    margin-bottom: 15px;
+}
+
+button {
+    margin-top: 20px;
+}
+
+#results-chart {
+    margin-top: 30px;
+}
+
+/* Tabla dinámica */
+#concepts-table tr td {
+    vertical-align: middle;
+}
+
+.highlight tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table-header {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+}
