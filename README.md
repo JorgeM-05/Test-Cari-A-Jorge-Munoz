@@ -2,7 +2,10 @@
 
 Este proyecto es una aplicación web para calcular las horas trabajadas por concepto basándose en un horario de entrada y salida. La aplicación utiliza un servicio REST para realizar los cálculos, y los resultados se visualizan de manera gráfica y tabular. Durante el desarrollo y pruebas locales, se identificó y manejó el problema de **CORS**.
 
-## url : ```https://jorgem-05.github.io/Test-Cari-A-Jorge-Munoz```
+## url disponible : 
+```bash
+   https://jorgem-05.github.io/Test-Cari-A-Jorge-Munoz
+```
 
 ## Problema de CORS
 
@@ -35,3 +38,7 @@ Para superar este problema, se recomienda:
 
 ![alt text](image.png)
 
+
+6. puedes interactuar con diferentes horarios y podras visualizar la grafica al momento de `calcular horas`
+
+![alt text](image-1.png)
