@@ -59,7 +59,7 @@ function addConceptRow(concept = { id: '', name: '', start: '', end: '' }) {
         newRow.remove();
     });
 
-    
+
 }
 
 attendanceForm.addEventListener('submit', async (event) => {
@@ -89,23 +89,49 @@ attendanceForm.addEventListener('submit', async (event) => {
     }
 
     try {
-        const response = await fetch('https://falconcloud.co/site_srv10_ph/site/api/qserv.php/13465-770721', {
+        
+        /**Comunicacion si no hubiera problemas de CORS en el servidor REST*/
+        // const response = await fetch('https://falconcloud.co/site_srv10_ph/site/api/qserv.php/13465-770721', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     body: JSON.stringify({
+        //         attendanceIn,
+        //         attendanceOut,
+        //         concepts
+        //     })
+        // });
+
+        // const data = await response.json();
+
+
+
+        /**Alternativa Comunicacion problemas de CORS en el servidor */
+        fetch('https://proxi-production.up.railway.app/proxy', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                attendanceIn,
-                attendanceOut,
-                concepts
+                url: 'https://falconcloud.co/site_srv10_ph/site/api/qserv.php/13465-770721',
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    attendanceIn,
+                    attendanceOut,
+                    concepts
+                }),
+            }),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                displayResults(data);
             })
-        });
-
-        const data = await response.json();
-
+            .catch((error) => console.error('Error:', error));
         displayResults(data);
     } catch (error) {
-        M.toast({ html: 'Error al conectar con el servicio REST' });
+        // se omite mensaje por problemas de CORS
+        // M.toast({ html: 'Error al conectar con el servicio REST' });
     }
 });
 
